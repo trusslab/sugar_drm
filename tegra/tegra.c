@@ -33,7 +33,7 @@
 
 #include <sys/mman.h>
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 
 #include <tegra_drm.h>
 

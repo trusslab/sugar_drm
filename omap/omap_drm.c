@@ -40,7 +40,7 @@
 #include <pthread.h>
 
 #include <libdrm_macros.h>
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <xf86atomic.h>
 
 #include "omap_drm.h"

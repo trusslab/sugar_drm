@@ -45,7 +45,7 @@
 #include "radeon_bo_gem.h"
 #include "drm.h"
 #include "libdrm_macros.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "xf86atomic.h"
 #include "radeon_drm.h"
 

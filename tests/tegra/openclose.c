@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "tegra.h"
 
 static const char default_device[] = "/dev/dri/card0";

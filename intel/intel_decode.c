@@ -34,7 +34,7 @@
 #include <string.h>
 
 #include "libdrm_macros.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "intel_chipset.h"
 #include "intel_bufmgr.h"
 

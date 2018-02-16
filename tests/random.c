@@ -74,7 +74,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "xf86drmRandom.h"
 
 static void check_period(unsigned long seed)

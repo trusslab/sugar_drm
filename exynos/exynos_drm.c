@@ -37,7 +37,7 @@
 #include <sys/mman.h>
 #include <linux/stddef.h>
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 
 #include "libdrm_macros.h"
 #include "exynos_drm.h"

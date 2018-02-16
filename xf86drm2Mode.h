@@ -1,5 +1,5 @@
 /*
- * \file xf86drmMode.h
+ * \file xf86drm2Mode.h
  * Header for DRM modesetting interface.
  *
  * \author Jakob Bornecrantz <wallbraker@gmail.com>
@@ -40,7 +40,7 @@
 extern "C" {
 #endif
 
-#include <drm.h>
+#include <libdrm2/drm.h>
 
 /*
  * This is the interface for modesetting for drm.
@@ -169,7 +169,6 @@ extern "C" {
 
 #endif /* _DRM_MODE_H */
 
-
 /*
  * Feature defines
  *
@@ -178,7 +177,6 @@ extern "C" {
  */
 #define DRM_MODE_FEATURE_KMS		1
 #define DRM_MODE_FEATURE_DIRTYFB	1
-
 
 typedef struct _drmModeRes {
 
@@ -380,7 +378,6 @@ extern int drmModeRmFB(int fd, uint32_t bufferId);
 extern int drmModeDirtyFB(int fd, uint32_t bufferId,
 			  drmModeClipPtr clips, uint32_t num_clips);
 
-
 /*
  * Crtc functions
  */
@@ -484,7 +481,6 @@ extern int drmModeObjectSetProperty(int fd, uint32_t object_id,
 				    uint32_t object_type, uint32_t property_id,
 				    uint64_t value);
 
-
 typedef struct _drmModeAtomicReq drmModeAtomicReq, *drmModeAtomicReqPtr;
 
 extern drmModeAtomicReqPtr drmModeAtomicAlloc(void);
@@ -506,7 +502,6 @@ extern int drmModeAtomicCommit(int fd,
 extern int drmModeCreatePropertyBlob(int fd, const void *data, size_t size,
 				     uint32_t *id);
 extern int drmModeDestroyPropertyBlob(int fd, uint32_t id);
-
 
 #if defined(__cplusplus)
 }

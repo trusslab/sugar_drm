@@ -71,7 +71,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "xf86drmHash.h"
 
 #define HASH_MAGIC 0xdeadbeef

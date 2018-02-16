@@ -42,7 +42,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 static void print(void* list)
 {

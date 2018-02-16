@@ -32,7 +32,7 @@
 #include <errno.h>
 #include <pthread.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "nouveau.h"
 
 static typeof(ioctl) *old_ioctl;

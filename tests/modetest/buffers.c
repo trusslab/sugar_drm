@@ -40,7 +40,7 @@
 #include "drm_fourcc.h"
 
 #include "libdrm_macros.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 #include "buffers.h"
 

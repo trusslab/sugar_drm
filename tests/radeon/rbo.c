@@ -29,7 +29,7 @@
 #include <string.h>
 #include <sys/mman.h>
 #include <errno.h>
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "radeon_drm.h"
 #include "rbo.h"
 

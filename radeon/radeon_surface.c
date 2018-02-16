@@ -38,7 +38,7 @@
 #include <sys/ioctl.h>
 #include "drm.h"
 #include "libdrm_macros.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "radeon_drm.h"
 #include "radeon_surface.h"
 

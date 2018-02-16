@@ -30,20 +30,21 @@ AM_CFLAGS = \
 	$(PTHREADSTUBS_CFLAGS) \
 	$(PCIACCESS_CFLAGS) \
 	$(VALGRIND_CFLAGS) \
-	-I$(top_srcdir)/include/drm
+	-I$(top_srcdir)/include/drm2
 
-libdrm_intel_la_LTLIBRARIES = libdrm_intel.la
-libdrm_intel_ladir = $(libdir)
-libdrm_intel_la_LDFLAGS = -version-number 1:0:0 -no-undefined
-libdrm_intel_la_LIBADD = ../libdrm.la \
+libdrm2_intel_la_LTLIBRARIES = libdrm2_intel.la
+libdrm2_intel_ladir = $(libdir)
+libdrm2_intel_la_LDFLAGS = -version-number 1:0:0 -no-undefined
+libdrm2_intel_la_LIBADD = ../libdrm2.la \
 	@PTHREADSTUBS_LIBS@ \
 	@PCIACCESS_LIBS@ \
 	@CLOCK_LIB@
 
-libdrm_intel_la_SOURCES = $(LIBDRM_INTEL_FILES)
 
-libdrm_intelincludedir = ${includedir}/libdrm
-libdrm_intelinclude_HEADERS = $(LIBDRM_INTEL_H_FILES)
+libdrm2_intel_la_SOURCES = $(LIBDRM_INTEL_FILES)
+
+libdrm2_intelincludedir = ${includedir}/libdrm2
+libdrm2_intelinclude_HEADERS = $(LIBDRM_INTEL_H_FILES)
 
 # This may be interesting even outside of "make check", due to the -dump option.
 noinst_PROGRAMS = test_decode
@@ -68,6 +69,7 @@ EXTRA_DIST = \
 	tests/test-batch.sh \
 	$(TESTS)
 
-test_decode_LDADD = libdrm_intel.la ../libdrm.la
+test_decode_LDADD = libdrm2_intel.la ../libdrm2.la -lsugar_driver
 
-pkgconfig_DATA = libdrm_intel.pc
+
+pkgconfig_DATA = libdrm2_intel.pc

@@ -29,7 +29,7 @@
 #ifndef FREEDRENO_DRMIF_H_
 #define FREEDRENO_DRMIF_H_
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <stdint.h>
 
 #if defined(__GNUC__)

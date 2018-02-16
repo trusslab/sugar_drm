@@ -1,0 +1,11 @@
+prefix=/usr/lib/x86_64-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdrm2_intel
+Description: Userspace interface to intel kernel DRM services (works with library drivers)
+Version: 2.4.70
+Requires: libdrm2
+Libs: -L${libdir} -ldrm2_intel
+Cflags: -I${includedir} -I${includedir}/libdrm2

@@ -2,7 +2,7 @@
 #define __NOUVEAU_LIBDRM_PRIVATE_H__
 
 #include <libdrm_macros.h>
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <xf86atomic.h>
 #include <pthread.h>
 #include "nouveau_drm.h"

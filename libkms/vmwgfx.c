@@ -35,7 +35,7 @@
 #include <string.h>
 #include "internal.h"
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "libdrm_macros.h"
 #include "vmwgfx_drm.h"
 

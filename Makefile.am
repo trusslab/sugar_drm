@@ -42,7 +42,7 @@ AM_DISTCHECK_CONFIGURE_FLAGS = \
 	--enable-valgrind
 
 pkgconfigdir = @pkgconfigdir@
-pkgconfig_DATA = libdrm.pc
+pkgconfig_DATA = libdrm2.pc
 
 if HAVE_LIBKMS
 LIBKMS_SUBDIR = libkms
@@ -102,35 +102,35 @@ SUBDIRS = \
 	$(FREEDRENO_SUBDIR) \
 	$(TEGRA_SUBDIR) \
 	$(VC4_SUBDIR) \
-	tests \
 	$(MAN_SUBDIR)
 
-libdrm_la_LTLIBRARIES = libdrm.la
-libdrm_ladir = $(libdir)
-libdrm_la_LDFLAGS = -version-number 2:4:0 -no-undefined
-libdrm_la_LIBADD = @CLOCK_LIB@ -lm
 
-libdrm_la_CPPFLAGS = -I$(top_srcdir)/include/drm
+libdrm2_la_LTLIBRARIES = libdrm2.la
+libdrm2_ladir = $(libdir)
+libdrm2_la_LDFLAGS = -version-number 2:4:0 -pthread -error-unresolved-symbols #-unresolved-symbols=ignore-all 
+libdrm2_la_LIBADD = @CLOCK_LIB@ -lm -lsugar_driver
+
+libdrm2_la_CPPFLAGS = -I$(top_srcdir)/include/drm2
 AM_CFLAGS = \
 	$(WARN_CFLAGS) \
 	$(VALGRIND_CFLAGS)
 
-libdrm_la_SOURCES = $(LIBDRM_FILES)
+libdrm2_la_SOURCES = $(LIBDRM_FILES)
 
-libdrmincludedir = ${includedir}
-libdrminclude_HEADERS = $(LIBDRM_H_FILES)
+libdrm2includedir = ${includedir}
+libdrm2include_HEADERS = $(LIBDRM_H_FILES)
 
-klibdrmincludedir = ${includedir}/libdrm
-klibdrminclude_HEADERS = $(LIBDRM_INCLUDE_H_FILES)
+klibdrm2includedir = ${includedir}/libdrm2
+klibdrm2include_HEADERS = $(LIBDRM_INCLUDE_H_FILES)
 
 if HAVE_VMWGFX
-klibdrminclude_HEADERS += $(LIBDRM_INCLUDE_VMWGFX_H_FILES)
+klibdrm2include_HEADERS += $(LIBDRM_INCLUDE_VMWGFX_H_FILES)
 endif
 
 
 copy-headers :
-	cp -r $(kernel_source)/include/uapi/drm/*.h $(top_srcdir)/include/drm/
+	cp -r $(kernel_source)/include/uapi/drm/*.h $(top_srcdir)/include/drm2/
 
 commit-headers : copy-headers
-	git add include/drm/*.h
+	git add include/drm2/*.h
 	git commit -am "Copy headers from kernel $$(GIT_DIR=$(kernel_source)/.git git describe)"

@@ -1,0 +1,10 @@
+prefix=/usr/lib/x86_64-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdrm2
+Description: Userspace interface to kernel DRM services (used with library drivers)
+Version: 2.4.70
+Libs: -L${libdir} -ldrm2
+Cflags: -I${includedir} -I${includedir}/libdrm2

@@ -27,7 +27,7 @@
 #ifndef OMAP_DRMIF_H_
 #define OMAP_DRMIF_H_
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <stdint.h>
 #include <omap_drm.h>
 

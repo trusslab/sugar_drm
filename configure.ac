@@ -19,10 +19,10 @@
 #  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 AC_PREREQ([2.63])
-AC_INIT([libdrm],
+AC_INIT([libdrm2],
         [2.4.70],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=DRI],
-        [libdrm])
+        [libdrm2])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([Makefile.am])
@@ -46,7 +46,7 @@ AC_PROG_CC
 AC_PROG_CC_C99
 
 if test "x$ac_cv_prog_cc_c99" = xno; then
-	AC_MSG_ERROR([Building libdrm requires C99 enabled compiler])
+	AC_MSG_ERROR([Building libdrm2 requires C99 enabled compiler])
 fi
 
 AC_USE_SYSTEM_EXTENSIONS
@@ -142,18 +142,18 @@ dnl check compiler flags
 AC_DEFUN([LIBDRM_CC_TRY_FLAG], [
   AC_MSG_CHECKING([whether $CC supports $1])
 
-  libdrm_save_CFLAGS="$CFLAGS"
+  libdrm2_save_CFLAGS="$CFLAGS"
   CFLAGS="$CFLAGS $1"
 
-  AC_COMPILE_IFELSE([AC_LANG_SOURCE([ ])], [libdrm_cc_flag=yes], [libdrm_cc_flag=no])
-  CFLAGS="$libdrm_save_CFLAGS"
+  AC_COMPILE_IFELSE([AC_LANG_SOURCE([ ])], [libdrm2_cc_flag=yes], [libdrm2_cc_flag=no])
+  CFLAGS="$libdrm2_save_CFLAGS"
 
-  if test "x$libdrm_cc_flag" = "xyes"; then
+  if test "x$libdrm2_cc_flag" = "xyes"; then
     ifelse([$2], , :, [$2])
   else
     ifelse([$3], , :, [$3])
   fi
-  AC_MSG_RESULT([$libdrm_cc_flag])
+  AC_MSG_RESULT([$libdrm2_cc_flag])
 ])
 
 dnl We use clock_gettime to check for timeouts in drmWaitVBlank
@@ -184,10 +184,10 @@ MAYBE_WARN="-Wall -Wextra \
 -Wno-missing-field-initializers"
 
 # invalidate cached value if MAYBE_WARN has changed
-if test "x$libdrm_cv_warn_maybe" != "x$MAYBE_WARN"; then
-	unset libdrm_cv_warn_cflags
+if test "x$libdrm2_cv_warn_maybe" != "x$MAYBE_WARN"; then
+	unset libdrm2_cv_warn_cflags
 fi
-AC_CACHE_CHECK([for supported warning flags], libdrm_cv_warn_cflags, [
+AC_CACHE_CHECK([for supported warning flags], libdrm2_cv_warn_cflags, [
 	echo
 	WARN_CFLAGS=""
 
@@ -206,11 +206,11 @@ AC_CACHE_CHECK([for supported warning flags], libdrm_cv_warn_cflags, [
 		LIBDRM_CC_TRY_FLAG([$W], [WARN_CFLAGS="$WARN_CFLAGS $W"])
 	done
 
-	libdrm_cv_warn_cflags=$WARN_CFLAGS
-	libdrm_cv_warn_maybe=$MAYBE_WARN
+	libdrm2_cv_warn_cflags=$WARN_CFLAGS
+	libdrm2_cv_warn_maybe=$MAYBE_WARN
 
 	AC_MSG_CHECKING([which warning flags were supported])])
-WARN_CFLAGS="$libdrm_cv_warn_cflags"
+WARN_CFLAGS="$libdrm2_cv_warn_cflags"
 
 # Check for atomic intrinsics
 AC_CACHE_CHECK([for native atomic primitives], drm_cv_atomic_primitives, [
@@ -242,12 +242,12 @@ fi
 dnl Print out the approapriate message considering the value set be the
 dnl respective in $1.
 dnl $1 - value to be evaluated. Eg. $INTEL, $NOUVEAU, ...
-dnl $2 - libdrm shortname. Eg. intel, freedreno, ...
+dnl $2 - libdrm2 shortname. Eg. intel, freedreno, ...
 dnl $3 - GPU name/brand. Eg. Intel, NVIDIA Tegra, ...
 dnl $4 - Configure switch. Eg. intel, omap-experimental-api, ...
 AC_DEFUN([LIBDRM_ATOMICS_NOT_FOUND_MSG], [
 	case "x$1" in
-		xyes)	AC_MSG_ERROR([libdrm_$2 depends upon atomic operations, which were not found for your compiler/cpu. Try compiling with -march=native, or install the libatomics-op-dev package, or, failing both of those, disable support for $3 GPUs by passing --disable-$4 to ./configure]) ;;
+		xyes)	AC_MSG_ERROR([libdrm2_$2 depends upon atomic operations, which were not found for your compiler/cpu. Try compiling with -march=native, or install the libatomics-op-dev package, or, failing both of those, disable support for $3 GPUs by passing --disable-$4 to ./configure]) ;;
 		xauto)	AC_MSG_WARN([Disabling $2. It depends on atomic operations, which were not found for your compiler/cpu. Try compiling with -march=native, or install the libatomics-op-dev package.]) ;;
 		*)	;;
 	esac
@@ -467,7 +467,7 @@ AM_CONDITIONAL([HAVE_MANPAGES_STYLESHEET], [test "x$HAVE_MANPAGES_STYLESHEET" = 
 
 AC_ARG_ENABLE(valgrind,
               [AS_HELP_STRING([--enable-valgrind],
-                             [Build libdrm with  valgrind support (default: auto)])],
+                             [Build libdrm2 with  valgrind support (default: auto)])],
                              [VALGRIND=$enableval], [VALGRIND=auto])
 if test "x$VALGRIND" != xno; then
 	PKG_CHECK_MODULES(VALGRIND, [valgrind], [have_valgrind=yes], [have_valgrind=no])
@@ -505,9 +505,9 @@ AC_SUBST(WARN_CFLAGS)
 AC_CONFIG_FILES([
 	Makefile
 	libkms/Makefile
-	libkms/libkms.pc
+	libkms/libkms2.pc
 	intel/Makefile
-	intel/libdrm_intel.pc
+	intel/libdrm2_intel.pc
 	radeon/Makefile
 	radeon/libdrm_radeon.pc
 	amdgpu/Makefile
@@ -538,7 +538,7 @@ AC_CONFIG_FILES([
 	tests/nouveau/Makefile
 	tests/util/Makefile
 	man/Makefile
-	libdrm.pc])
+	libdrm2.pc])
 AC_OUTPUT
 
 echo ""

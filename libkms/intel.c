@@ -37,10 +37,11 @@
 #include "internal.h"
 
 #include <sys/ioctl.h>
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "libdrm_macros.h"
 
 #include "i915_drm.h"
+#include "my_prints.h"
 
 struct intel_bo
 {

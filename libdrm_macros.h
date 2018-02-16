@@ -42,6 +42,8 @@
 
 
 #include <sys/mman.h>
+#include <sugar/isol_file_ops.h>
+#include "my_prints.h"
 
 #if defined(ANDROID) && !defined(__LP64__)
 #include <errno.h> /* for EINVAL */
@@ -67,9 +69,12 @@ static inline void *drm_mmap(void *addr, size_t length, int prot, int flags,
 #else
 
 /* assume large file support exists */
-#  define drm_mmap(addr, length, prot, flags, fd, offset) \
-              mmap(addr, length, prot, flags, fd, offset)
 
+static inline void *drm_mmap(void *addr, size_t length, int prot, int flags,
+                             int fd, loff_t offset)
+{
+   return isol_mmap(addr, length, prot, flags, fd, (off_t) offset);
+}
 
 static inline int drm_munmap(void *addr, size_t length)
 {
@@ -80,7 +85,7 @@ static inline int drm_munmap(void *addr, size_t length)
                  LARGE_OFF_T % 2147483647 == 1);
 #undef LARGE_OFF_T
 
-   return munmap(addr, length);
+   return isol_munmap(addr, length);
 }
 #endif
 

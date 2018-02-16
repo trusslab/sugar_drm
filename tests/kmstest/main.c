@@ -28,7 +28,7 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <string.h>
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "libkms.h"
 
 #include "util/kms.h"

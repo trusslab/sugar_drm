@@ -34,8 +34,8 @@
 
   <refsynopsisdiv>
     <funcsynopsis>
-      <funcsynopsisinfo>#include &lt;xf86drm.h&gt;</funcsynopsisinfo>
-      <funcsynopsisinfo>#include &lt;xf86drmMode.h&gt;</funcsynopsisinfo>
+      <funcsynopsisinfo>#include &lt;xf86drm2.h&gt;</funcsynopsisinfo>
+      <funcsynopsisinfo>#include &lt;xf86drm2Mode.h&gt;</funcsynopsisinfo>
     </funcsynopsis>
   </refsynopsisdiv>
 

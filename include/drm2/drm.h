@@ -292,7 +292,7 @@ struct drm_lock {
  * DMA flags
  *
  * \warning
- * These values \e must match xf86drm.h.
+ * These values \e must match xf86drm2.h.
  *
  * \sa drm_dma.
  */

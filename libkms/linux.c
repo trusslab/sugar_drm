@@ -36,7 +36,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/stat.h>

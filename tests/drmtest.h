@@ -31,7 +31,7 @@
 #include <assert.h>
 #include <errno.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 #define DRM_TEST_MASTER 0x01
 

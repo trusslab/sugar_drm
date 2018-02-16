@@ -43,7 +43,7 @@
 #include <assert.h>
 #include <errno.h>
 #include <strings.h>
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <pthread.h>
 #include "intel_bufmgr.h"
 #include "intel_bufmgr_priv.h"

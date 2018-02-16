@@ -45,7 +45,7 @@
 #include <assert.h>
 
 #include "libdrm_macros.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "xf86atomic.h"
 
 #include "util_double_list.h"

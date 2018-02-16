@@ -28,7 +28,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <xf86drm.h>
+#include <xf86drm2.h>
 
 
 static void

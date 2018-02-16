@@ -38,7 +38,7 @@
 #include "config.h"
 #endif
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <xf86atomic.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -64,6 +64,8 @@
 #include "string.h"
 
 #include "i915_drm.h"
+#include <sugar/isol_file_ops.h>
+#include "my_prints.h"
 
 #ifdef HAVE_VALGRIND
 #include <valgrind.h>
@@ -2520,7 +2522,7 @@ drm_intel_gem_bo_set_tiling_internal(drm_intel_bo *bo,
 		set_tiling.tiling_mode = tiling_mode;
 		set_tiling.stride = stride;
 
-		ret = ioctl(bufmgr_gem->fd,
+		ret = isol_ioctl(bufmgr_gem->fd,
 			    DRM_IOCTL_I915_GEM_SET_TILING,
 			    &set_tiling);
 	} while (ret == -1 && (errno == EINTR || errno == EAGAIN));

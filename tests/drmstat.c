@@ -46,7 +46,7 @@
 #ifdef HAVE_ALLOCA_H
 # include <alloca.h>
 #endif
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 int sigio_fd;
 

@@ -37,7 +37,7 @@
 #endif
 
 #include <drm_fourcc.h>
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 #include "util/common.h"
 #include "libkms-test.h"

@@ -34,7 +34,7 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 #include <xf86atomic.h>
 #include "libdrm_lists.h"
 #include "nouveau_drm.h"

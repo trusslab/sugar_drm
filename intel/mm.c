@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "libdrm_macros.h"
 #include "mm.h"
 

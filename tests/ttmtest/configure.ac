@@ -20,7 +20,7 @@ AC_ARG_WITH(libdrm,
 savecpp="$CPPFLAGS"
 MDRIINC="-I$libdrmpref/include -I$libdrmpref/include/drm -I$x_includes"
 CPPFLAGS="$CPPFLAGS $MDRIINC"
-AC_CHECK_HEADER(xf86drm.h,,\
+AC_CHECK_HEADER(xf86drm2.h,,\
 		 [AC_MSG_ERROR(Could not find libdrm installation. Use --with-libdrm=<libdrm_installation_prefix>)])
 AC_CHECK_HEADER(drm.h,,\
 		 [AC_MSG_ERROR(Could not find libdrm installation. Use --with-libdrm=<libdrm_installation_prefix>)])

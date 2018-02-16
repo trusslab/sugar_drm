@@ -1,0 +1,11 @@
+prefix=/usr/lib/x86_64-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libkms2
+Description: Library that abstract aways the different mm interface for kernel drivers (works with library drivers)
+Version: 1.0.0
+Libs: -L${libdir} -lkms2
+Cflags: -I${includedir}/libkms2
+Requires.private: libdrm2

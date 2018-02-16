@@ -20,7 +20,7 @@
 #include <getopt.h>
 #include <errno.h>
 
-#include <xf86drm.h>
+#include <xf86drm2.h>
 
 #include "exynos_drm.h"
 #include "exynos_drmif.h"

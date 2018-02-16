@@ -28,7 +28,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#include <xf86drmMode.h>
+#include <xf86drm2Mode.h>
 
 struct kms_device {
 	int fd;

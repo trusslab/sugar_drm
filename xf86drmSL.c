@@ -41,7 +41,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 #define SL_LIST_MAGIC  0xfacade00LU
 #define SL_ENTRY_MAGIC 0x00fab1edLU

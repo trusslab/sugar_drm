@@ -61,13 +61,15 @@
 #include <sys/sysmacros.h>
 #endif
 #include <math.h>
+#include <sugar/isol_file_ops.h>
+#include "my_prints.h"
 
 /* Not all systems have MAP_FAILED defined */
 #ifndef MAP_FAILED
 #define MAP_FAILED ((void *)-1)
 #endif
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "libdrm_macros.h"
 
 #include "util_math.h"
@@ -172,7 +174,7 @@ drmIoctl(int fd, unsigned long request, void *arg)
     int ret;
 
     do {
-        ret = ioctl(fd, request, arg);
+	ret = isol_ioctl(fd, request, arg);
     } while (ret == -1 && (errno == EINTR || errno == EAGAIN));
     return ret;
 }
@@ -392,7 +394,7 @@ wait_for_udev:
     }
 #endif
 
-    fd = open(buf, O_RDWR, 0);
+    fd = isol_open(buf, O_RDWR, 0);
     drmMsg("drmOpenDevice: open result is %d, (%s)\n",
            fd, fd < 0 ? strerror(errno) : "OK");
     if (fd >= 0)
@@ -412,7 +414,7 @@ wait_for_udev:
             chmod(buf, devmode);
         }
     }
-    fd = open(buf, O_RDWR, 0);
+    fd = isol_open(buf, O_RDWR, 0);
     drmMsg("drmOpenDevice: open result is %d, (%s)\n",
            fd, fd < 0 ? strerror(errno) : "OK");
     if (fd >= 0)
@@ -437,7 +439,7 @@ wait_for_udev:
  * Calls drmOpenDevice() if \p create is set, otherwise assembles the device
  * name from \p minor and opens it.
  */
-static int drmOpenMinor(int minor, int create, int type)
+int drmOpenMinor(int minor, int create, int type)
 {
     int  fd;
     char buf[64];
@@ -461,8 +463,8 @@ static int drmOpenMinor(int minor, int create, int type)
     };
 
     sprintf(buf, dev_name, DRM_DIR_NAME, minor);
-    if ((fd = open(buf, O_RDWR, 0)) >= 0)
-        return fd;
+    if ((fd = isol_open(buf, O_RDWR, 0)) >= 0)
+	return fd;
     return -errno;
 }
 
@@ -1425,7 +1427,7 @@ int drmDMA(int fd, drmDMAReqPtr request)
     dma.granted_count   = 0;
 
     do {
-        ret = ioctl( fd, DRM_IOCTL_DMA, &dma );
+	ret = isol_ioctl( fd, DRM_IOCTL_DMA, &dma );
     } while ( ret && errno == EAGAIN && i++ < DRM_DMA_RETRY );
 
     if ( ret == 0 ) {
@@ -2100,7 +2102,7 @@ int drmWaitVBlank(int fd, drmVBlankPtr vbl)
     timeout.tv_sec++;
 
     do {
-       ret = ioctl(fd, DRM_IOCTL_WAIT_VBLANK, vbl);
+       ret = isol_ioctl(fd, DRM_IOCTL_WAIT_VBLANK, vbl);
        vbl->request.type &= ~DRM_VBLANK_RELATIVE;
        if (ret && errno == EINTR) {
            clock_gettime(CLOCK_MONOTONIC, &cur);
@@ -2673,12 +2675,12 @@ void drmCloseOnce(int fd)
 
 int drmSetMaster(int fd)
 {
-        return drmIoctl(fd, DRM_IOCTL_SET_MASTER, NULL);
+        return isol_ioctl(fd, DRM_IOCTL_SET_MASTER, NULL);
 }
 
 int drmDropMaster(int fd)
 {
-        return drmIoctl(fd, DRM_IOCTL_DROP_MASTER, NULL);
+        return isol_ioctl(fd, DRM_IOCTL_DROP_MASTER, NULL);
 }
 
 char *drmGetDeviceNameFromFd(int fd)

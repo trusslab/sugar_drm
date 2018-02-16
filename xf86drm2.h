@@ -1,5 +1,5 @@
 /**
- * \file xf86drm.h 
+ * \file xf86drm2.h 
  * OS-independent header for DRM user-level library interface.
  *
  * \author Rickard E. (Rik) Faith <faith@valinux.com>
@@ -37,7 +37,7 @@
 #include <stdarg.h>
 #include <sys/types.h>
 #include <stdint.h>
-#include <drm.h>
+#include <libdrm2/drm.h>
 
 #if defined(__cplusplus)
 extern "C" {
@@ -153,7 +153,6 @@ typedef struct _drmStats {
 	int           verbose;       /**< Suggest only in verbose output */
     } data[15];
 } drmStatsT;
-
 
 				/* All of these enums *MUST* match with the
                                    kernel implementation -- so do *NOT*
@@ -309,7 +308,6 @@ typedef struct _drmTextureRegion {
     unsigned char padding;	/**< Explicitly pad this out */
     unsigned int  age;
 } drmTextureRegion, *drmTextureRegionPtr;
-
 
 typedef enum {
     DRM_VBLANK_ABSOLUTE = 0x0,	/**< Wait for specific vblank sequence number */
@@ -553,8 +551,6 @@ do {	register unsigned int __old __asm("o0");		\
 	        } while (__ret);                                       \
             }                                                          \
 	} while(0)
-
-
 
 /* General user-level programmer's API: unprivileged */
 extern int           drmAvailable(void);

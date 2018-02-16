@@ -39,7 +39,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "amdgpu_drm.h"
 #include "amdgpu_internal.h"
 #include "util_hash_table.h"

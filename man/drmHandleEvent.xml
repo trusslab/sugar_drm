@@ -35,7 +35,7 @@
   <refsynopsisdiv>
 
     <funcsynopsis>
-      <funcsynopsisinfo>#include &lt;xf86drm.h&gt;</funcsynopsisinfo>
+      <funcsynopsisinfo>#include &lt;xf86drm2.h&gt;</funcsynopsisinfo>
 
       <funcprototype>
         <funcdef>int <function>drmHandleEvent</function></funcdef>

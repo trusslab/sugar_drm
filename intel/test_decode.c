@@ -37,6 +37,8 @@
 #include "libdrm_macros.h"
 #include "intel_bufmgr.h"
 #include "intel_chipset.h"
+#include <sugar/isol_file_ops.h>
+#include "my_prints.h"
 
 #define HW_OFFSET 0x12300000
 
@@ -55,7 +57,7 @@ read_file(const char *filename, void **ptr, size_t *size)
 	int fd, ret;
 	struct stat st;
 
-	fd = open(filename, O_RDONLY);
+	fd = isol_open(filename, O_RDONLY, 0);
 	if (fd < 0)
 		errx(1, "couldn't open `%s'", filename);
 

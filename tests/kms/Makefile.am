@@ -1,5 +1,5 @@
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include/drm \
+	-I$(top_srcdir)/include/drm2 \
 	-I$(top_srcdir)/tests \
 	-I$(top_srcdir)
 
@@ -17,7 +17,7 @@ libkms_test_la_SOURCES = \
 	libkms-test-screen.c
 
 libkms_test_la_LIBADD = \
-	$(top_builddir)/libdrm.la
+	$(top_builddir)/libdrm2.la
 
 if HAVE_INSTALL_TESTS
 bin_PROGRAMS = \

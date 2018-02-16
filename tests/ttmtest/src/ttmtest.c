@@ -38,7 +38,7 @@
 #include <stdint.h>
 #include <drm/drm.h>
 #include "xf86dri.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "stdio.h"
 #include "sys/types.h"
 #include <unistd.h>

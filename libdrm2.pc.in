@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libdrm2
+Description: Userspace interface to kernel DRM services (used with library drivers)
+Version: @PACKAGE_VERSION@
+Libs: -L${libdir} -ldrm2
+Cflags: -I${includedir} -I${includedir}/libdrm2

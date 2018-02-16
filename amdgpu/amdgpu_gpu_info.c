@@ -32,7 +32,7 @@
 #include "amdgpu.h"
 #include "amdgpu_drm.h"
 #include "amdgpu_internal.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
 
 int amdgpu_query_info(amdgpu_device_handle dev, unsigned info_id,
 		      unsigned size, void *value)

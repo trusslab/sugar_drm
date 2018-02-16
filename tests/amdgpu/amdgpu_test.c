@@ -43,8 +43,8 @@
 #include <stdint.h>
 
 #include "drm.h"
-#include "xf86drmMode.h"
-#include "xf86drm.h"
+#include "xf86drm2Mode.h"
+#include "xf86drm2.h"
 
 #include "CUnit/Basic.h"
 

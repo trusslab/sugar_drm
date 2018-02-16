@@ -52,13 +52,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include "xf86drmMode.h"
-#include "xf86drm.h"
+#include "xf86drm2Mode.h"
+#include "xf86drm2.h"
 #include <drm.h>
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sugar/isol_file_ops.h>
+#include "my_prints.h"
 
 #define memclear(s) memset(&s, 0, sizeof(s))
 
@@ -880,7 +882,7 @@ int drmHandleEvent(int fd, drmEventContextPtr evctx)
 	/* The DRM read semantics guarantees that we always get only
 	 * complete events. */
 
-	len = read(fd, buffer, sizeof buffer);
+	len = isol_read(fd, buffer, sizeof buffer);
 	if (len == 0)
 		return 0;
 	if (len < (int)sizeof *e)

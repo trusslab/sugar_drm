@@ -40,7 +40,8 @@
 #include "libdrm_macros.h"
 #include "intel_bufmgr.h"
 #include "intel_bufmgr_priv.h"
-#include "xf86drm.h"
+#include "xf86drm2.h"
+#include "my_prints.h"
 
 /** @file intel_bufmgr.c
  *

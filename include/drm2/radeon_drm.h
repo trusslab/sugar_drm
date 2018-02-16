@@ -1009,7 +1009,6 @@ struct drm_radeon_cs {
 #define RADEON_INFO_VRAM_USAGE		0x1e
 #define RADEON_INFO_GTT_USAGE		0x1f
 
-
 struct drm_radeon_info {
 	uint32_t		request;
 	uint32_t		pad;

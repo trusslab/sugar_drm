@@ -41,8 +41,8 @@
 #include <sys/select.h>
 #endif
 
-#include "xf86drm.h"
-#include "xf86drmMode.h"
+#include "xf86drm2.h"
+#include "xf86drm2Mode.h"
 
 #include "util/common.h"
 #include "util/kms.h"

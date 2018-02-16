@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "xf86drm.h"
+#include "xf86drm2.h"
 #include "xf86drmRandom.c"
 #include "xf86drmHash.c"
 #include "xf86drm.c"
